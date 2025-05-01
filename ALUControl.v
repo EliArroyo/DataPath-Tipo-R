@@ -15,17 +15,17 @@ module ALUControl(
 always@(*) 
 	begin
 		case (ALUOpin)
-			3'b010:									// Instrucciones tipo R
+			3'b010:	// Instrucciones tipo R
 				case (Function)
-					6'b100000: OpALUout = 3'b010;		//Suma
-					6'b100010: OpALUout = 3'b110;		//Resta
-					6'b100100: OpALUout = 3'b000;		//AND
-					6'b100101: OpALUout = 3'b001;		//OR
-					6'b101010: OpALUout = 3'b111;		//SLT
+					6'b100000: OpALUout = 3'b010;  // Operación de suma (add)
+					6'b100010: OpALUout = 3'b110;  // Operación de resta (sub)
+					6'b100100: OpALUout = 3'b000;  // Operación lógica AND
+					6'b100101: OpALUout = 3'b001;  // Operación lógica OR
+					6'b101010: OpALUout = 3'b111;  // Comparación: set on less than (SLT)
 				endcase
-			3'b001: OpALUout = 3'd0;        			// Instrucciones tipo J
-			3'b000: OpALUout = 3'd0;       			// Instrucciones tipo I
-			default: OpALUout = 3'd0;       			// Por defecto, salida en 0
+			3'b001: OpALUout = 3'd0;   // Para instrucciones tipo J: la ALU no realiza operaciones relevantes
+			3'b000: OpALUout = 3'd0;   // Para instrucciones tipo I: operación básica o no requerida
+			default: OpALUout = 3'd0;  // Configuración por defecto: salida neutra de la ALU
 		endcase
 	end
 endmodule
