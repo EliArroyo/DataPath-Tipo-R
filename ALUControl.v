@@ -23,9 +23,9 @@ always@(*)
 					6'b100101: OpALUout = 3'b001;  // Operación lógica OR
 					6'b101010: OpALUout = 3'b111;  // Comparación: set on less than (SLT)
 				endcase
-			3'b001: OpALUout = 3'd0;   // Para instrucciones tipo J: la ALU no realiza operaciones relevantes
-			3'b000: OpALUout = 3'd0;   // Para instrucciones tipo I: operación básica o no requerida
-			default: OpALUout = 3'd0;  // Configuración por defecto: salida neutra de la ALU
+			3'b001: OpALUout = 3'd0;   // Instrucciones tipo J: la ALU permanece inactiva
+			3'b000: OpALUout = 3'd0;   // Instrucciones tipo I: operación por defecto o sin uso de la ALU
+			default: OpALUout = 3'd0;  // Valor por defecto: la salida de la ALU se establece en cero
 		endcase
 	end
 endmodule
