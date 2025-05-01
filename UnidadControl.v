@@ -21,8 +21,8 @@ always@(*)
 	end
 endmodule
 
-/*Salida control de bits
-5      	 RegWrite -> BR
-4 3 2 	 ALUcontrol
-1		 MemToWrite -> MemDatos
-0		 MemToReg	-> Multiplexor*/
+/* Descripción de las señales de control por bits
+Bit 5       : RegWrite — Habilita la escritura en el banco de registros
+Bits 4-2    : ALUcontrol — Determina la operación que ejecuta la ALU
+Bit 1       : MemWrite — Activa la escritura en la memoria de datos
+Bit 0       : MemToReg — Controla si el dato a escribir en el registro proviene de la memoria o de la ALU */
