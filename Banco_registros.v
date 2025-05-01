@@ -6,27 +6,27 @@ Ernesto Lopez
 27/04/2025
 UdeG CUCEI ICOM*/
 
-module Banco_Registros(
-	input  wire[4:0]direccion_lect_1,
-	input  wire[4:0]direccion_lect_2,
-	input  wire[4:0]direccion_escritura,
+module BancoRegistros(
+	input  wire[4:0]dirLect1,
+	input  wire[4:0]dirLect2,
+	input  wire[4:0]dirEscritura,
 	input  wire RegEn,
-	input  wire[31:0] datoEscritura,
-	output reg [31:0] datoLect_1,
-	output reg [31:0] datoLect_2
+	input  wire[31:0] datoEsc,
+	output reg [31:0] datoLect1,
+	output reg [31:0] datoLect2
 );
 
-reg [31:0]BR_in[0:31];
+reg [31:0]BRin[0:31];
 
 always@(*)
 	begin
 	//Procedimiento de lectura de datos
-	datoLect_1 = BR_in[direccion_lect_1];
-	datoLect_2 = BR_in[direccion_lect_2];
+	datoLect1 = BRin[dirLect1];
+	datoLect2 = BRin[dirLect2];
 	
 	if(RegEn)
 	begin
-		BR_in[direccion_escritura] = datoEscritura;
+		BRin[dirEscritura] = datoEsc;
 	end
 	
 end
