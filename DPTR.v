@@ -44,7 +44,6 @@ DPTR instTB(.instruccionTR(instruccion));
 // Bits 15-11 : Registro destino (donde se almacena el resultado)
 // Bits 10-6  : Shamt (desplazamiento; no se utiliza en instrucciones R estándar)
 // Bits 5-0   : Código de función (especifica la operación a realizar)
-
 initial
 	begin
 		$readmemb("datos.txt", instTB.instBR.BRin);
