@@ -36,15 +36,14 @@ reg   [31:0]instruccion;
 
 DPTR instTB(.instruccionTR(instruccion));
 
-//Banco de pruebas.
-//El conjunto de instrucciones está distribuido de la siguiente manera:
-//Para instrucciones tipo R:
-//32-26 OPcode (000000 en instrucciones tipo R)
-//21-25 Registro s (rs)
-//16-20 Registro t (rt)
-//11-15	Registro destino (resultado)
-//6-10	Shamt (no se usa en instrucciones tipo R)
-//0-5	Function
+// Banco de pruebas.
+// Formato de codificación para instrucciones tipo R:
+// Bits 31-26 : Opcode (siempre 000000 en este tipo de instrucciones)
+// Bits 25-21 : Registro fuente (rs)
+// Bits 20-16 : Segundo registro fuente (rt)
+// Bits 15-11 : Registro destino (donde se almacena el resultado)
+// Bits 10-6  : Shamt (desplazamiento; no se utiliza en instrucciones R estándar)
+// Bits 5-0   : Código de función (especifica la operación a realizar)
 
 initial
 	begin
