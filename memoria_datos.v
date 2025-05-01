@@ -6,27 +6,27 @@ Ernesto Lopez
 27/04/2025
 UdeG CUCEI ICOM*/
 
-module mem_out(
+module memOut(
 	input  wire[31:0]dir,
 	input  wire MemToWrite,
-	input  wire[31:0] datoEscritura,
-	output reg [31:0] datoLectura
+	input  wire[31:0] datoEsc,
+	output reg [31:0] datoLec
 );
 
-reg [31:0]memr_out[0:31];
+reg [31:0]memrOut[0:31];
 
 always@(*)
 	begin
 	//Escritura
 	if(MemToWrite) 
 	begin
-		memr_out[dir] = datoEscritura;
+		memrOut[dir] = datoEsc;
 	end
 	
 	//Lectura
 	if(!(MemToWrite))
 	begin
-		datoLectura = memr_out[dir];
+		datoLec = memrOut[dir];
 	end
 end
 endmodule
