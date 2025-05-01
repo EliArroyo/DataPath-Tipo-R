@@ -8,14 +8,14 @@ UdeG CUCEI ICOM*/
 
 module ALU(
     input wire [31:0] A, B,
-    input wire [2:0]  ALU_Sel,
+    input wire [2:0]  ALUSel,
     output reg [31:0] R
 );
 
 always@(*) 
 
 	begin
-		case (ALU_Sel)
+		case (ALUSel)
 			3'b000: R = A&B;        				
 			3'b001: R = A|B;        				
 			3'b010: R = A+B;       				
@@ -24,5 +24,6 @@ always@(*)
 			default: R = 32'd0;       				
 		endcase
 	end
+	
 endmodule
 
