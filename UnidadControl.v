@@ -14,9 +14,9 @@ module UnidadControl(
 always@(*) 
 	begin
 		case (OPcode)
-			6'b000000:  outControl = 6'b1_010_0_0;		// Opcode de instrucciones tipo R
-			6'b000001:  outControl = 6'b0_010_0_0;		// Opcode de instrucciones tipo R
-			default: outControl = 6'd0;       			// Por defecto, salida en 0
+			6'b000000: outControl = 6'b1_010_0_0;   // Tipo R: habilita escritura en registros, operación ALU
+			6'b000001: outControl = 6'b0_010_0_0;   // Variante de tipo R sin escritura en registros
+			default:    outControl = 6'd0;          // Valor por defecto: todas las señales desactivadas
 		endcase
 	end
 endmodule
